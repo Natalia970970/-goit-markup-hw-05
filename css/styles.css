@@ -4,6 +4,7 @@
     --main-text-color: #212121;
     --secondary-text-color: #757575;
     --accent-color: #2196F3;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }  
 
 
@@ -59,6 +60,15 @@ body {
     padding-bottom: 94px;
 }
 
+@keyframes current {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* ================= HEADER ================= */
 
 .page-header {
@@ -73,6 +83,30 @@ body {
 }
 .menu-item:last-child {
     margin-right: 0;
+}
+
+.menu-link.current {
+    position: relative;
+}
+
+.menu-link.current::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: block;
+    width: 100%;
+    height: 4px;
+
+    background: var(--accent-color);
+    border-radius: 2px;
+
+    animation-name: current;
+    animation-duration: 250ms;
+    animation-timing-function: var(--timing-function);
+
 }
 
 .navigation {
@@ -111,6 +145,11 @@ body {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--main-text-color);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
+
 }
     
 .page-header .menu-link:hover,
@@ -146,6 +185,10 @@ body {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--secondary-text-color);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
     
 .page-header .contact-email-address:hover,
@@ -157,7 +200,6 @@ body {
     fill: currentColor;
     margin-right: 10px;
 }
-
     
 .page-header .contact-phone-number {
     display: flex;
@@ -168,6 +210,10 @@ body {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--secondary-text-color);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
         
 .page-header .contact-phone-number:hover,
@@ -224,12 +270,22 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     border: none;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .modal-btn:hover,
-.modal-btn:focus{
+.modal-btn:focus,
+.modal-btn:active{
+    background-color: #188CE8;
+}
+
+.modal-btn:active{
     background: #188CE8;
     color: #FFFFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* ================= HERO ================= */
@@ -316,11 +372,36 @@ body {
 }
 
 .activities-item {
+    position: relative;
+
     margin-right: 30px;
 }
 
 .activities-item:last-child {
     margin-right: 0;
+}
+
+.activities-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 370px;
+    min-height: 70px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+    background-color: rgba(47, 48, 58, 0.8);
 }
 
 /* ================= /activities ================= */
@@ -406,6 +487,11 @@ body {
     border-radius: 50%;
     background-color: #FFFFFF;
     color: #AFB1B8;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
+
 }
 
 .team-member-soc-icon {
@@ -460,6 +546,16 @@ body {
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     color: #AFB1B8;
+
+    
+    transition-property: border;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
+
+    
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .customers-link:hover,
@@ -516,6 +612,10 @@ body {
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: #FFFFFF;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 .page-footer .address:hover,
 .page-footer .address:focus{
@@ -528,6 +628,10 @@ body {
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 
 }
 
@@ -544,6 +648,10 @@ body {
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 0.6);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }  
 
 .page-footer .contact-phone-number:hover,
@@ -614,6 +722,10 @@ margin-bottom: 0;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.1);
         color: #ffffff;
+
+        transition-property: background-color;
+        transition-duration: 250ms;
+        transition-timing-function: var(--timing-function);
     }
     
     .join-soc-icon {
@@ -632,6 +744,72 @@ margin-bottom: 0;
 
 /* ================= /footer ================= */
 
+/* ================= modal ================= */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    
+    transition: opacity 250ms var(--timing-function),
+    visibility 250ms var(--timing-function);
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%,-50%) scale(0);
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1);
+
+    min-height: 581px;
+    min-width: 528px;
+
+    background-color: #ffffff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    transition: transform 250ms var(--timing-function);
+}
+
+.modal-close-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #0000001A;
+    border-radius: 50%;
+    color: #000000;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.modal-close-btn:active {
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+/* ================= /modal ================= */
 
 /* ================= portfolio ================= */
 
@@ -657,6 +835,10 @@ margin-bottom: 0;
 
 .button-item {
     margin-right: 8px;
+
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 
 }
 
@@ -687,6 +869,16 @@ margin-bottom: 0;
     background-color: #F5F4FA;
     cursor: pointer;
     border: none;
+
+    
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
+
 }
 .filter-btn:hover,
 .filter-btn:focus {
@@ -703,6 +895,10 @@ margin-bottom: 0;
 .portfolio-item {
     margin-right: 30px;
     margin-bottom: 30px;
+
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
 }
 
 .portfolio-item:hover,
@@ -713,12 +909,40 @@ margin-bottom: 0;
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.portfolio-item:hover .portfolio-text {
+    transform: translateY(0);
+}
+
 .portfolio-item:nth-child(3n) {
     margin-right: 0;
 }
 
 .portfolio-item:nth-last-child(-n+3) {
     margin-bottom: 0;
+}
+
+.portfolio-top-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-text {
+    position: absolute;
+    top: 0;
+
+    transform: translateY(100%);
+    transition: transform 250ms var(--timing-function);
+
+    height: 100%;
+    padding: 63px 24px;
+
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+
+    color: #FFFFFF;
+    background-color:#2196F3E5;
+
 }
 
 .portfolio-wrapper {
